@@ -1,0 +1,87 @@
+﻿@model MVC_Garage.Models.ParkedVehicle
+
+<div class="jumbotron">
+
+    @{
+        ViewBag.Title = "Details";
+    }
+
+    <h2>Details</h2>
+
+    <div>
+ 
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VehicleType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RegNum)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RegNum)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Color)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Color)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Brand)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Brand)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NumOfWheels)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NumOfWheels)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ParkedTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ParkedTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ComparedTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ComparedTime.Days) Days- 
+                @Html.DisplayFor(model => model.ComparedTime.Hours):
+                @Html.DisplayFor(model => model.ComparedTime.Minutes)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>

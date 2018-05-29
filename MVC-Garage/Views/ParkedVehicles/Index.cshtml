@@ -1,0 +1,61 @@
+﻿@model IEnumerable<MVC_Garage.Models.Overview>
+
+<div class="jumbotron">
+
+    @using (@Html.BeginForm("Search", "ParkedVehicles", FormMethod.Get))
+    {
+
+        @Html.TextBox("search")<input type="submit" value="Search" />
+    }
+
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Overview</h2>
+
+    <p>
+        @Html.ActionLink("Park New Vehicle", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Type", "Index1", new { sortOrder = ViewBag.TypeSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Reg Number", "Index1", new { sortOrder = ViewBag.RegNrSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Color", "Index1", new { sortOrder = ViewBag.ColorSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("Parking Time", "Index1", new { sortOrder = ViewBag.TimeSortParm })
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VehicleType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegNum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParkedTime)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Checkout", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
