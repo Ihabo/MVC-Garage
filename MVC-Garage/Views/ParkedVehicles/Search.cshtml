@@ -4,7 +4,7 @@
     @using (@Html.BeginForm("Search", "ParkedVehicles", FormMethod.Get))
     {
 
-        @Html.TextBox("search")<input type="submit" value="Search" />
+        @Html.TextBox("search",null,new {@placeholder = "Reg.Num.."})<input type="submit" value="Search" />
     }
 
     @{

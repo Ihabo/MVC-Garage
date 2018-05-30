@@ -4,7 +4,8 @@
         ViewBag.Title = "Delete";
     }
 
-    <h2>Checking Out</h2>
+    <h2 class="hidden-print">Checking Out</h2>
+    <h2 class="visible-print">The Receipt</h2>
 
     <h3 class="hidden-print">Are you sure you want to checkout?</h3>
 
@@ -63,7 +64,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ComparedTime.Days) Days-
+            @Html.DisplayFor(model => model.ComparedTime.Days) Days-  
             @Html.DisplayFor(model => model.ComparedTime.Hours):
             @Html.DisplayFor(model => model.ComparedTime.Minutes)
         </dd>
@@ -74,6 +75,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.Price) SEK
+            <h5 class="visible-print">"It's only 0.5 SEK per minute!"</h5>
         </dd>
 
     </dl>
@@ -81,8 +83,8 @@
 
     <a href="#">
         <span class="glyphicon glyphicon-print hidden-print" onclick="myFunction()"></span>
-        </a>
-        @using (Html.BeginForm())
+    </a>
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
 
@@ -97,17 +99,12 @@
         </div>
 
 
-}
-
-
-
-
-
-        <script>
-            function myFunction() {
-                window.print();
-            }
-        </script>
+    }
+    <script>
+        function myFunction() {
+            window.print();
+        }
+    </script>
 
 
 </div>
