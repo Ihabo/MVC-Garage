@@ -1,7 +1,9 @@
 ﻿@model MVC_Garage.Models.ParkedVehicle
 <div class="jumbotron">
     @{
-        ViewBag.Title = "Delete";
+                    /**/
+
+                    ViewBag.Title = "Delete";
     }
 
     <h2 class="hidden-print">Checking Out</h2>
@@ -64,7 +66,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ComparedTime.Days) Days-  
+            @Html.DisplayFor(model => model.ComparedTime.Days) Days-
             @Html.DisplayFor(model => model.ComparedTime.Hours):
             @Html.DisplayFor(model => model.ComparedTime.Minutes)
         </dd>
@@ -82,7 +84,7 @@
     <p>@Html.ActionLink("Back to List", "Index", null, new { @class = "hidden-print" }) </p>
 
     <a href="#">
-        <span class="glyphicon glyphicon-print hidden-print" onclick="myFunction()"></span>
+        @Html.ActionLink("Veiw the Reciept", "Reciept", new { id = Model.Id }, new { @class = "hidden-print" })
     </a>
     @using (Html.BeginForm())
     {
@@ -100,6 +102,7 @@
 
 
     }
+     
     <script>
         function myFunction() {
             window.print();

@@ -1,0 +1,73 @@
+﻿@model MVC_Garage.Models.ParkedVehicle
+
+<div class="jumbotron">
+
+    @{
+        ViewBag.Title = "Reciept";
+    }
+
+    <h2>The Reciept</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.VehicleType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.VehicleType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RegNum)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RegNum)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ParkedTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ParkedTime)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ComparedTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ComparedTime.Days) Days-
+                @Html.DisplayFor(model => model.ComparedTime.Hours):
+                @Html.DisplayFor(model => model.ComparedTime.Minutes)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price) SEK
+                <h5 class="visible-print">"It's only 0.5 SEK per minute!"</h5>
+            </dd>
+
+        </dl>
+
+
+        <p>@Html.ActionLink("Back to List", "Index", null, new { @class = "hidden-print" }) </p>
+        <p>@Html.ActionLink("Back to Checkout", "Delete", new { id = Model.Id }, new { @class = "hidden-print" }) </p>
+        <a href="#">
+            <span class="glyphicon glyphicon-print hidden-print" onclick="myFunction()"></span>
+        </a>
+        <script>
+            function myFunction() {
+                window.print();
+            }
+        </script>
+
+
+    </div>
+</div>

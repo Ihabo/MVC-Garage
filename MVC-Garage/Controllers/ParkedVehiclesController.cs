@@ -126,7 +126,19 @@ namespace MVC_Garage.Controllers
         }
 
 
-   
+        public ActionResult Reciept(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ParkedVehicle parkedVehicle = db.ParkedVehicles.Find(id);
+            if (parkedVehicle == null)
+            {
+                return HttpNotFound();
+            }
+            return View(parkedVehicle);
+        }
 
         // GET: ParkedVehicles/Details/5
         public ActionResult Details(int? id)
